@@ -30,5 +30,15 @@ public class Main {
 
         list.bubbleSort();
         list.display();
+
+        DLL dll = new DLL();
+        dll.insertFirst(1);
+        dll.insertFirst(2);
+        dll.insertFirst(3);
+        dll.insertFirst(4);
+        dll.display();
+
+        dll.insertAt(2, 77);
+        dll.display();
     }
 }

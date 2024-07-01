@@ -9,6 +9,7 @@ public class LL {
         this.size = 0;
     }
 
+    // Node class
     private class Node {
         private int value;
         private Node next;
