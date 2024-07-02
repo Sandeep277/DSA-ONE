@@ -1,13 +1,18 @@
 package collectionsInJava;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+import java.util.Deque;
 
 public class Queues {
     public static void main(String[] args) {
         // Create a new Queue
         Queue<Integer> queue = new LinkedList<>();
+
+        // Deque
+        Deque<Integer> dq = new ArrayDeque<>();
+        dq.addFirst(1);
+        dq.addLast(3);
+        System.out.println(dq);
 
         // Add elements using add() and offer()
         queue.add(1);
