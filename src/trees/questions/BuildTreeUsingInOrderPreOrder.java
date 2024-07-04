@@ -1,7 +1,7 @@
-package trees;
+package trees.questions;
 import java.util.*;
 
-public class Questions {
+public class BuildTreeUsingInOrderPreOrder {
 
     class TreeNode {
         int value;
@@ -19,7 +19,7 @@ public class Questions {
         }
     }
 
-    // build a tree using in-order and pre-order traversal
+    //Question.1: build a tree using in-order and pre-order traversal
     public TreeNode buildTree(int[] preOrder, int[] inOrder) {
         HashMap<Integer, Integer> map = new HashMap<>();
 
