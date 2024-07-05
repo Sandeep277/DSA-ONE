@@ -1,0 +1,277 @@
+
+### Object-Oriented Programming (OOP) Concepts
+
+1. **Class**:
+   - A blueprint for creating objects.
+   - Defines a data structure by bundling data (fields) and methods that operate on the data.
+   ```java
+   public class Car {
+       private String brand;
+       private String model;
+       private int year;
+
+       public Car(String brand, String model, int year) {
+           this.brand = brand;
+           this.model = model;
+           this.year = year;
+       }
+
+       public void displayInfo() {
+           System.out.println("Brand: " + brand);
+           System.out.println("Model: " + model);
+           System.out.println("Year: " + year);
+       }
+   }
+   ```
+
+2. **Object**:
+   - An instance of a class.
+   - Created using the `new` keyword.
+   ```java
+   Car myCar = new Car("Toyota", "Camry", 2020);
+   myCar.displayInfo();
+   ```
+
+3. **Encapsulation**:
+   - Bundling the data (fields) and methods that operate on the data into a single unit (class).
+   - Restricting direct access to some of the object's components.
+   - Achieved using access modifiers (`private`, `public`, `protected`).
+   ```java
+   public class Car {
+       private String brand;
+       private String model;
+       private int year;
+
+       // Getters and Setters
+       public String getBrand() {
+           return brand;
+       }
+
+       public void setBrand(String brand) {
+           this.brand = brand;
+       }
+   }
+   ```
+
+4. **Inheritance**:
+   - Mechanism where one class acquires the properties and behaviors (methods) of a parent class.
+   - Promotes code reusability.
+   ```java
+   public class Car {
+       // Fields and methods
+   }
+
+   public class SportsCar extends Car {
+       private int maxSpeed;
+
+       public void displayMaxSpeed() {
+           System.out.println("Max Speed: " + maxSpeed);
+       }
+   }
+   ```
+
+5. **Polymorphism**:
+   - Ability of a variable, function, or object to take on multiple forms.
+   - Achieved through method overriding and method overloading.
+   ```java
+   public class Car {
+       public void honk() {
+           System.out.println("Car honk: Beep Beep!");
+       }
+   }
+
+   public class SportsCar extends Car {
+       @Override
+       public void honk() {
+           System.out.println("SportsCar honk: Vroom Vroom!");
+       }
+   }
+
+   Car myCar = new SportsCar();
+   myCar.honk(); // Outputs: SportsCar honk: Vroom Vroom!
+   ```
+
+6. **Abstraction**:
+   - Hiding the implementation details and showing only the essential features of the object.
+   - Achieved using abstract classes and interfaces.
+   ```java
+   public abstract class Vehicle {
+       public abstract void honk();
+   }
+
+   public class Car extends Vehicle {
+       @Override
+       public void honk() {
+           System.out.println("Car honk: Beep Beep!");
+       }
+   }
+   ```
+
+### `this` Keyword
+
+- Refers to the current instance of the class.
+- Used to distinguish between instance variables and parameters with the same name.
+- Can be used to call other constructors in the same class.
+
+```java
+public class Car {
+    private String brand;
+    private String model;
+
+    public Car(String brand, String model) {
+        this.brand = brand; // 'this' refers to the instance variable
+        this.model = model;
+    }
+
+    public void displayInfo() {
+        System.out.println("Brand: " + this.brand);
+        System.out.println("Model: " + this.model);
+    }
+}
+```
+
+### `super` Keyword
+
+- Refers to the superclass (parent class) of the current object.
+- Used to call superclass methods and constructors.
+
+```java
+public class Vehicle {
+    private String brand;
+
+    public Vehicle(String brand) {
+        this.brand = brand;
+    }
+
+    public void displayBrand() {
+        System.out.println("Brand: " + brand);
+    }
+}
+
+public class Car extends Vehicle {
+    private String model;
+
+    public Car(String brand, String model) {
+        super(brand); // Calls the constructor of the superclass
+        this.model = model;
+    }
+
+    @Override
+    public void displayBrand() {
+        super.displayBrand(); // Calls the superclass method
+        System.out.println("Model: " + model);
+    }
+}
+```
+
+### Four Pillars of OOP
+
+1. **Encapsulation**:
+   - Definition: Encapsulation is the technique of making the fields in a class private and providing access to the fields via public methods.
+   - Why Use: To protect the internal state of an object and to achieve a modular structure.
+   - How to Use: Use private access modifiers for fields and provide public getters and setters.
+   ```java
+   public class Person {
+       private String name;
+       private int age;
+
+       public String getName() {
+           return name;
+       }
+
+       public void setName(String name) {
+           this.name = name;
+       }
+
+       public int getAge() {
+           return age;
+       }
+
+       public void setAge(int age) {
+           if (age > 0) {
+               this.age = age;
+           }
+       }
+   }
+   ```
+
+2. **Inheritance**:
+   - Definition: Inheritance is a mechanism in which one class inherits the fields and methods of another class.
+   - Why Use: To promote code reuse and establish a natural hierarchy between classes.
+   - How to Use: Use the `extends` keyword to inherit from a superclass.
+   ```java
+   public class Animal {
+       public void eat() {
+           System.out.println("This animal eats food.");
+       }
+   }
+
+   public class Dog extends Animal {
+       public void bark() {
+           System.out.println("This dog barks.");
+       }
+   }
+   ```
+
+3. **Polymorphism**:
+   - Definition: Polymorphism allows methods to do different things based on the object it is acting upon, though they share the same name.
+   - Why Use: To enable one interface to be used for a general class of actions.
+   - How to Use: Achieved through method overriding (runtime polymorphism) and method overloading (compile-time polymorphism).
+   ```java
+   public class Animal {
+       public void makeSound() {
+           System.out.println("Animal makes a sound.");
+       }
+   }
+
+   public class Dog extends Animal {
+       @Override
+       public void makeSound() {
+           System.out.println("Dog barks.");
+       }
+   }
+
+   public class Main {
+       public static void main(String[] args) {
+           Animal myAnimal = new Dog();
+           myAnimal.makeSound(); // Outputs: Dog barks.
+       }
+   }
+   ```
+
+4. **Abstraction**:
+   - Definition: Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object.
+   - Why Use: To reduce complexity and increase efficiency by focusing on essential qualities.
+   - How to Use: Use abstract classes and interfaces.
+   ```java
+   public abstract class Shape {
+       abstract void draw();
+   }
+
+   public class Circle extends Shape {
+       @Override
+       void draw() {
+           System.out.println("Drawing a circle.");
+       }
+   }
+
+   public class Main {
+       public static void main(String[] args) {
+           Shape myShape = new Circle();
+           myShape.draw(); // Outputs: Drawing a circle.
+       }
+   }
+   ```
+
+### Summary
+
+- **Class**: Blueprint for creating objects.
+- **Object**: Instance of a class.
+- **Encapsulation**: Protects the internal state of an object.
+- **Inheritance**: Allows a class to inherit properties and methods of another class.
+- **Polymorphism**: Allows methods to perform different functions based on the object.
+- **Abstraction**: Hides the complex implementation and shows only the essential features.
+- **`this` keyword**: Refers to the current instance of the class.
+- **`super` keyword**: Refers to the superclass of the current object.
+
+By understanding and using these concepts, you can create modular, reusable, and efficient code in Java.
