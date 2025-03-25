@@ -21,6 +21,8 @@ The following data structures are implemented in this repository:
 
 - **ArrayList**: array data structure.
 - **String**: String data structure.
+- **Searching**: Linear Search and Binary Search.
+- **Sorting**: All Sorting Algorithm.
 - **Stack**: Last-In-First-Out (LIFO) data structure.
 - **Queue**: First-In-First-Out (FIFO) data structure.
 - **Linked List**: Singly linked list and doubly linked list.
